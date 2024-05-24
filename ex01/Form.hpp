@@ -6,7 +6,7 @@
 /*   By: lgernido <lgernido@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 09:14:53 by lgernido          #+#    #+#             */
-/*   Updated: 2024/05/24 12:35:24 by lgernido         ###   ########.fr       */
+/*   Updated: 2024/05/24 13:38:09 by lgernido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,13 +40,13 @@ class Form
         class GradeTooHighException : public std::exception{
             public :
             const char *what()const throw (){
-             return "Form required grade is too high.";
+             return "grade is too high.";
             };
         };
         class GradeTooLowException : public std::exception{
             public :
             const char *what() const throw(){
-            return "Form required grade is too low.";   
+            return "grade is too low.";   
             };
         };
 

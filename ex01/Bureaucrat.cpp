@@ -6,7 +6,7 @@
 /*   By: lgernido <lgernido@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/23 14:13:21 by lgernido          #+#    #+#             */
-/*   Updated: 2024/05/24 12:52:32 by lgernido         ###   ########.fr       */
+/*   Updated: 2024/05/24 13:25:56 by lgernido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,14 +103,16 @@ void Bureaucrat::upGrade(int amount)
 //Sign the form 
 void Bureaucrat::signForm(Form &form)
 {
-    if (form.getSignature() == true)
+    try
     {
+        form.beSigned(*this);
+        
         std::cout << GREEN << BOLD << this->name << " signed " << form.getName() << " form." << RESET << std::endl;
         std::cout << std::endl;
     }
-    else
+    catch(const std::exception& e)
     {
-        std::cout << GREEN << BOLD << this->name << " couldn't sign " << form.getName() << " lower grade than required." << RESET << std::endl;
-        std::cout << std::endl;
+        std::cerr << RED << BOLD << this->name << " couldn't sign " << form.getName() << " because " << e.what() << RESET << std::endl;
+        std::cout << std::endl;;
     }
 }

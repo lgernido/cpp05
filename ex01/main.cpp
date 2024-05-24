@@ -6,7 +6,7 @@
 /*   By: lgernido <lgernido@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 10:26:55 by lgernido          #+#    #+#             */
-/*   Updated: 2024/05/24 12:57:14 by lgernido         ###   ########.fr       */
+/*   Updated: 2024/05/24 13:26:37 by lgernido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,6 @@ int main(void)
 		Form NBA_Team("Los Angeles Lakers", 24, 24);
 		std::cout << CYAN << BOLD << NBA_Team  << RESET << std::endl;
 		
-		NBA_Team.beSigned(Lebron);
 		Lebron.signForm(NBA_Team);
 		std::cout << CYAN << BOLD << NBA_Team  << RESET << std::endl;
 
@@ -121,7 +120,6 @@ int main(void)
 		Form NBA_Team("Los Angeles Lakers", 24, 24);
 		std::cout << CYAN << BOLD << NBA_Team  << RESET << std::endl;
 		
-		NBA_Team.beSigned(Lebron);
 		Lebron.signForm(NBA_Team);
 		std::cout << CYAN << BOLD << NBA_Team  << RESET << std::endl;
 
@@ -150,7 +148,6 @@ int main(void)
 		std::cout << CYAN << BOLD << WNBA_Team  << RESET << std::endl;
 		std::cout << CYAN << BOLD << NBA_Team  << RESET << std::endl;
 		
-		WNBA_Team.beSigned(Lebron);
 		Lebron.signForm(WNBA_Team);
 		/*After this, only the copy will be signed*/
 		std::cout << CYAN << BOLD << WNBA_Team  << RESET << std::endl;
