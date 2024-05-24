@@ -6,7 +6,7 @@
 /*   By: lgernido <lgernido@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/23 14:13:19 by lgernido          #+#    #+#             */
-/*   Updated: 2024/05/23 15:50:55 by lgernido         ###   ########.fr       */
+/*   Updated: 2024/05/24 09:03:24 by lgernido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,9 @@
 #define ITALIC     "\033[3m"
 #define RESET      "\033[0m"
 
+#define GRADE_MAX 1
+#define GRADE_MIN 150
+
 class Bureaucrat
 {
     public :
@@ -50,13 +53,13 @@ class Bureaucrat
         class GradeTooHighException : public std::exception{
             public :
             const char *what()const throw (){
-             return "Grade too high. Bureaucrat grade should be under 150.";
+             return "Grade too high. Bureaucrat best possible grade is 1.";
             };
         };
         class GradeTooLowException : public std::exception{
             public :
             const char *what() const throw(){
-            return "Grade too low. Bureaucrat grade should be over 0.";   
+            return "Grade too low. Bureaucrat worst possible grade is 150.";   
             };
         };
         
@@ -67,5 +70,6 @@ class Bureaucrat
     protected :
 };
 
+    std::ostream& operator<<(std::ostream &os, const Bureaucrat& bureaucrat);
 
 #endif

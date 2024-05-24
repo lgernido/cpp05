@@ -6,7 +6,7 @@
 /*   By: lgernido <lgernido@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/23 14:13:21 by lgernido          #+#    #+#             */
-/*   Updated: 2024/05/23 16:01:13 by lgernido         ###   ########.fr       */
+/*   Updated: 2024/05/24 09:11:49 by lgernido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,10 @@ Bureaucrat::~Bureaucrat()
 //Copy constructor
 Bureaucrat::Bureaucrat(const Bureaucrat& other) : name(other.getName()), grade(other.getGrade())
 {
-    if (grade < 1)
-        throw (Bureaucrat::GradeTooLowException());
-    else if (grade > 150)
+    if (grade < GRADE_MAX)
         throw (Bureaucrat::GradeTooHighException());
+    else if (grade > GRADE_MIN)
+        throw (Bureaucrat::GradeTooLowException());
     std::cout << BOLD << "Bureaucrat " << RESET << ITALIC << "copy constructor called" << RESET << std::endl;
     std::cout << std::endl;
 }
@@ -43,10 +43,10 @@ Bureaucrat::Bureaucrat(const Bureaucrat& other) : name(other.getName()), grade(o
 //Attributes constructor
 Bureaucrat::Bureaucrat(std::string name, int grade) : name(name), grade(grade)
 {    
-    if (grade < 1)
-        throw (Bureaucrat::GradeTooLowException());
-    else if (grade > 150)
+    if (grade < GRADE_MAX)
         throw (Bureaucrat::GradeTooHighException());
+    else if (grade > GRADE_MIN)
+        throw (Bureaucrat::GradeTooLowException());
     std::cout << BOLD << "Bureaucrat " << RESET << ITALIC << "attributes constructor called" << RESET << std::endl;
     std::cout << std::endl;
 }
@@ -56,9 +56,16 @@ Bureaucrat& Bureaucrat::operator=(const Bureaucrat& other)
 {
     if (this == &other)
         return (*this);
-    // this->name = other.getName();
     this->grade = other.getGrade();
     return (*this);
+}
+
+/*INSERTION OPERATOR*/
+std::ostream& operator<<(std::ostream &os, const Bureaucrat& bureaucrat) 
+{
+	os << bureaucrat.getName() << ", bureaucrat grade "
+		<< bureaucrat.getGrade() << std::endl;
+	return os;
 }
 
 /*PUBLIC METHODS*/
@@ -77,12 +84,18 @@ int Bureaucrat::getGrade(void)const
 
 //Increment and decrement grade
 
-void Bureaucrat::upGrade(int amount)
-{
-    this->grade += amount;
-}
-
 void Bureaucrat::downGrade(int amount)
 {
-    this->grade -= amount;
+    if (grade + amount > GRADE_MIN)
+        throw (Bureaucrat::GradeTooLowException());
+    else
+        this->grade += amount;
+}
+
+void Bureaucrat::upGrade(int amount)
+{
+    if (grade - amount < GRADE_MAX)
+        throw (Bureaucrat::GradeTooHighException());
+    else
+        this->grade -= amount;
 }

@@ -6,7 +6,7 @@
 /*   By: lgernido <lgernido@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/23 14:13:34 by lgernido          #+#    #+#             */
-/*   Updated: 2024/05/23 16:22:00 by lgernido         ###   ########.fr       */
+/*   Updated: 2024/05/24 09:12:33 by lgernido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,29 +92,105 @@ int main()
             std::cerr << RED << BOLD << e.what() << RESET << std::endl;
         }
 
-        // std::cout << GREEN "---------------------------------------------------" RESET << std::endl;
-        // std::cout << GREEN "NON WORKING BUREAUCRAT:" << std::endl;
-	    // std::cout << "---------------------------------------------------" RESET << std::endl;
-        
-        // Bureaucrat Lebron("Lebron", -1);
-        // try
-        // {
-        //     Bureaucrat Bronny(Lebron);
-        // }
-        // catch(const std::exception& e)
-        // {
-        //     std::cerr << RED << BOLD << e.what() << RESET << std::endl;
-        // }
-        // try
-        // {
-        //     Bureaucrat Bryce = Lebron;
-        // }
-        // catch(const std::exception& e)
-        // {
-        //     std::cerr << RED << BOLD << e.what() << RESET << std::endl;
-        // }
+        std::cout << std::endl << RED "---------------------------------------------------"<< std::endl;
+		std::cout <<"GRADE CHANGES:" << std::endl;
+	    std::cout << "---------------------------------------------------" RESET << std::endl;
+	    std::cout << std::endl;
 
+	    std::cout << GREEN "INCREASING THE GRADE WITH NO EXCEPTION:" << std::endl;
+	    std::cout << "---------------------------------------------------" RESET << std::endl;
         
+        try
+        {
+            Bureaucrat Lebron("Lebron", 23);
+            std::cout << CYAN << BOLD << Lebron.getName() << RESET  << CYAN << " has a grade " << UNDERLINE << Lebron.getGrade() << RESET << std::endl;
+            
+            Lebron.upGrade(10);
+            std::cout << CYAN << BOLD << Lebron.getName() << RESET  << CYAN << " has a grade " << UNDERLINE << Lebron.getGrade() << RESET << std::endl;
+            
+            std::cout << std::endl;
+        }
+        catch(const std::exception& e)
+        {
+            std::cerr << RED << BOLD << e.what() << RESET << std::endl;
+        }
+        
+	    std::cout << GREEN "---------------------------------------------------" RESET << std::endl;
+        std::cout << GREEN "DECREASING THE GRADE WITH NO EXCEPTION:" << std::endl;
+	    std::cout << "---------------------------------------------------" RESET << std::endl;
+        
+        try
+        {
+            Bureaucrat Lebron("Lebron", 23);
+            std::cout << CYAN << BOLD << Lebron.getName() << RESET  << CYAN << " has a grade " << UNDERLINE << Lebron.getGrade() << RESET << std::endl;
+            
+            Lebron.downGrade(45);
+            std::cout << CYAN << BOLD << Lebron.getName() << RESET  << CYAN << " has a grade " << UNDERLINE << Lebron.getGrade() << RESET << std::endl;
+            
+            std::cout << std::endl;
+        }
+        catch(const std::exception& e)
+        {
+            std::cerr << RED << BOLD << e.what() << RESET << std::endl;
+        }
+        
+        std::cout << GREEN "---------------------------------------------------" RESET << std::endl;
+        std::cout << GREEN "INCREASING THE GRADE WITH AN EXCEPTION:" << std::endl;
+	    std::cout << "---------------------------------------------------" RESET << std::endl;
+
+        try
+        {
+            Bureaucrat Lebron("Lebron", 23);
+            std::cout << CYAN << BOLD << Lebron.getName() << RESET  << CYAN << " has a grade " << UNDERLINE << Lebron.getGrade() << RESET << std::endl;
+            
+            Lebron.upGrade(25);
+            std::cout << CYAN << BOLD << Lebron.getName() << RESET  << CYAN << " has a grade " << UNDERLINE << Lebron.getGrade() << RESET << std::endl;
+            
+            std::cout << std::endl;
+        }
+        catch(const std::exception& e)
+        {
+            std::cerr << RED << BOLD << e.what() << RESET << std::endl;
+        }
+
+        std::cout << GREEN "---------------------------------------------------" RESET << std::endl;
+        std::cout << GREEN "DECREASING WITH AN EXCEPTION:" << std::endl;
+	    std::cout << "---------------------------------------------------" RESET << std::endl;
+        
+        try
+        {
+            Bureaucrat Lebron("Lebron", 23);
+            std::cout << CYAN << BOLD << Lebron.getName() << RESET  << CYAN << " has a grade " << UNDERLINE << Lebron.getGrade() << RESET << std::endl;
+            
+            Lebron.downGrade(200);
+            std::cout << CYAN << BOLD << Lebron.getName() << RESET  << CYAN << " has a grade " << UNDERLINE << Lebron.getGrade() << RESET << std::endl;
+            
+            std::cout << std::endl;
+        }
+        catch(const std::exception& e)
+        {
+            std::cerr << RED << BOLD << e.what() << RESET << std::endl;
+        }
+
+        std::cout << std::endl << RED "---------------------------------------------------"<< std::endl;
+		std::cout <<"OVERLOAD OF THE INSERTION OPERATOR:" << std::endl;
+	    std::cout << "---------------------------------------------------" RESET << std::endl;
+	    std::cout << std::endl;
+
+        try
+        {
+            Bureaucrat Lebron("Lebron", 23);
+            std::cout << CYAN << BOLD << Lebron << RESET << std::endl;
+            
+            Lebron.downGrade(40);
+            std::cout << CYAN << BOLD << Lebron << RESET << std::endl;
+            
+            std::cout << std::endl;
+        }
+        catch(const std::exception& e)
+        {
+            std::cerr << RED << BOLD << e.what() << RESET << std::endl;
+        }
     }
     
 }
