@@ -6,7 +6,7 @@
 /*   By: lgernido <lgernido@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 09:14:53 by lgernido          #+#    #+#             */
-/*   Updated: 2024/05/25 13:05:10 by lgernido         ###   ########.fr       */
+/*   Updated: 2024/05/25 13:59:17 by lgernido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ class AForm
             return "grade is too low.";   
             };
         };
-        class UnsignedDocumentException : std::exception{
+        class UnsignedDocumentException : public std::exception{
             public :
                 const char *what() const throw(){
                     return "the form is not signed.";

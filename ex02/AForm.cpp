@@ -6,7 +6,7 @@
 /*   By: lgernido <lgernido@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 09:14:37 by lgernido          #+#    #+#             */
-/*   Updated: 2024/05/25 13:26:27 by lgernido         ###   ########.fr       */
+/*   Updated: 2024/05/25 13:57:42 by lgernido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,7 +96,7 @@ void AForm::execute(Bureaucrat const& executor) const
     
     if (executor_grade > this->execute_grade)
         throw (AForm::GradeTooLowException());
-    else if (this->signature == false)
+    else if (!this->signature)
         throw (AForm::UnsignedDocumentException());
     else
     {

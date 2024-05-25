@@ -6,7 +6,7 @@
 /*   By: lgernido <lgernido@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 09:14:37 by lgernido          #+#    #+#             */
-/*   Updated: 2024/05/24 13:22:22 by lgernido         ###   ########.fr       */
+/*   Updated: 2024/05/25 10:09:52 by lgernido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ Form& Form::operator=(const Form& other)
 {
     if (this == &other)
         return (*this);
-    
+    this->signature = other.getSignature();
     return (*this);
 }
 

@@ -6,7 +6,7 @@
 /*   By: lgernido <lgernido@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/25 12:35:25 by lgernido          #+#    #+#             */
-/*   Updated: 2024/05/25 13:50:52 by lgernido         ###   ########.fr       */
+/*   Updated: 2024/05/25 13:56:46 by lgernido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -190,4 +190,19 @@ int main(void)
     {
         std::cerr << RED << BOLD << e.what() << RESET << std::endl;
     }
+    std::cout << GREEN "---------------------------------------------------" RESET << std::endl;
+	std::cout << GREEN "EXECUTE AN UNSIGNED FORM:" << std::endl;
+	std::cout << "---------------------------------------------------" RESET << std::endl;
+    Bureaucrat Larry("Larry", 22);
+    try
+    {
+		ShrubberyCreationForm Big_tree("Tree");
+		std::cout << YELLOW << BOLD << Big_tree << RESET << std::endl;
+        Larry.executeForm(Big_tree);        
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << RED << BOLD << e.what() << RESET << std::endl;
+    }
+    std::cout << std::endl;
 }
