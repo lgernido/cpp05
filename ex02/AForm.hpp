@@ -6,7 +6,7 @@
 /*   By: lgernido <lgernido@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 09:14:53 by lgernido          #+#    #+#             */
-/*   Updated: 2024/05/25 11:44:50 by lgernido         ###   ########.fr       */
+/*   Updated: 2024/05/25 13:05:10 by lgernido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,10 @@ class AForm
         
 
         void beSigned(Bureaucrat& Bureaucrat);
-        virtual void executeForm(std::string target) = 0;
+        void execute(Bureaucrat const & executor) const;
+
+        
+        virtual void executeConcrete(const std::string& target) const = 0;
                 
         class GradeTooHighException : public std::exception{
             public :
@@ -52,16 +55,22 @@ class AForm
             return "grade is too low.";   
             };
         };
+        class UnsignedDocumentException : std::exception{
+            public :
+                const char *what() const throw(){
+                    return "the form is not signed.";
+                }
+        };
 
     private :
         
 
     protected :
-        std::string const name;
-        std::string const target;
+        std::string name;
+        std::string target;
         bool signature;
-        int const sign_grade;
-        int const execute_grade;
+        int  sign_grade;
+        int execute_grade;
 };
 
 std::ostream& operator<<(std::ostream &os, const AForm& Aform);

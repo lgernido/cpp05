@@ -6,7 +6,7 @@
 /*   By: lgernido <lgernido@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/23 14:13:21 by lgernido          #+#    #+#             */
-/*   Updated: 2024/05/24 13:25:56 by lgernido         ###   ########.fr       */
+/*   Updated: 2024/05/25 13:41:55 by lgernido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,13 +101,13 @@ void Bureaucrat::upGrade(int amount)
 }
 
 //Sign the form 
-void Bureaucrat::signForm(Form &form)
+void Bureaucrat::signForm(AForm &form)
 {
     try
     {
         form.beSigned(*this);
         
-        std::cout << GREEN << BOLD << this->name << " signed " << form.getName() << " form." << RESET << std::endl;
+        std::cout << CYAN << BOLD << this->name << " signed " << form.getName() << " form." << RESET << std::endl;
         std::cout << std::endl;
     }
     catch(const std::exception& e)
@@ -115,4 +115,21 @@ void Bureaucrat::signForm(Form &form)
         std::cerr << RED << BOLD << this->name << " couldn't sign " << form.getName() << " because " << e.what() << RESET << std::endl;
         std::cout << std::endl;;
     }
+}
+
+//Execute the form
+void Bureaucrat::executeForm(AForm const& form)
+{
+    try
+    {
+        form.execute(*this);
+        std::cout << CYAN << BOLD << this->name << " executed " << form.getName() << RESET << std::endl;
+        std::cout << std::endl;  
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << RED << BOLD << this->name << " couldn't execute " << form.getName() << " because "<< e.what() << RESET<< std::endl;
+        std::cout << std::endl;
+    }
+    
 }

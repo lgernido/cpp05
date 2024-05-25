@@ -6,7 +6,7 @@
 /*   By: lgernido <lgernido@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 09:14:37 by lgernido          #+#    #+#             */
-/*   Updated: 2024/05/25 10:39:17 by lgernido         ###   ########.fr       */
+/*   Updated: 2024/05/25 13:26:27 by lgernido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ std::ostream& operator<<(std::ostream &os, const AForm& Aform)
     }
 	os << Aform.getName() << ", has a required grade to sign of "
 		<< Aform.getSignGrade() << " and a required grade to execute of " 
-        << Aform.getExecuteGrade() << ". Currently, the Aform is " << signed_status << std::endl;
+        << Aform.getExecuteGrade() << ". Currently, the form is " << signed_status << std::endl;
 	return os;
 }
 
@@ -87,6 +87,20 @@ void AForm::beSigned(Bureaucrat& Bureaucrat)
     else
     {
         throw (AForm::GradeTooLowException());
+    }
+}
+
+void AForm::execute(Bureaucrat const& executor) const
+{
+    int executor_grade = executor.getGrade();
+    
+    if (executor_grade > this->execute_grade)
+        throw (AForm::GradeTooLowException());
+    else if (this->signature == false)
+        throw (AForm::UnsignedDocumentException());
+    else
+    {
+        executeConcrete(this->target);
     }
 }
 

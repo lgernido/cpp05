@@ -6,7 +6,7 @@
 /*   By: lgernido <lgernido@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 13:01:44 by lgernido          #+#    #+#             */
-/*   Updated: 2024/05/25 11:45:24 by lgernido         ###   ########.fr       */
+/*   Updated: 2024/05/25 13:52:44 by lgernido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 /*CONSTRUCTORS & DESTRUCTORS*/
 
 //Default Constructor
-ShrubberyCreationForm::ShrubberyCreationForm() : AForm(), signature(false), sign_grade(145), execute_grade(137)
+ShrubberyCreationForm::ShrubberyCreationForm()
 {
     std::cout << BOLD << "Shrubbery Creation Form " << RESET << ITALIC << "default constructor called" << RESET << std::endl;
     std::cout << std::endl;
@@ -29,14 +29,19 @@ ShrubberyCreationForm::~ShrubberyCreationForm()
 }
 
 //Copy Consctructor
-ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm& other) : name(other.getName() + "_copy"), signature(other.getSignature()), sign_grade(145), execute_grade(137)
+ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm& other)
 {
+    this->name = other.getName() + "_copy";
+    this->signature = other.getSignature();
+    this->sign_grade = other.getSignGrade();
+    this->execute_grade = other.getExecuteGrade();
+    this->target = other.getTarget();
     std::cout << BOLD << "Shrubbery Creation Form " << RESET << ITALIC << "copy constructor called" << RESET << std::endl;
     std::cout << std::endl;
 }
 
 //Attribute constructor
-ShrubberyCreationForm::ShrubberyCreationForm(std::string& target) : AForm("Shrubber Form", 145, 137)
+ShrubberyCreationForm::ShrubberyCreationForm(const std::string& target) : AForm("Shrubber", 145, 137)
 {
     this->target = target;
     std::cout << BOLD << "Shrubbery Creation Form " << RESET << ITALIC << " attribute constructor called" << RESET << std::endl;
@@ -49,17 +54,17 @@ ShrubberyCreationForm& ShrubberyCreationForm::operator=(const ShrubberyCreationF
     if (this == &other)
         return (*this);
     this->signature = other.getSignature();
-    return(*this)
+    return(*this);
 }
 
 /*PUBLIC METHODS*/
 
 //Execute the shrubbery 
-void ShrubberyCreationForm::executeForm(std::string target)
+void ShrubberyCreationForm::executeConcrete(const std::string& target)const
 {
     std::fstream shrub_file;
 
-    shrub_file.open(target + "_shrubbery", std::fstream.out || std::fstream.trunc);
+   shrub_file.open((target + "_shrubbery").c_str(), std::fstream::out | std::fstream::trunc);
 
     if (!shrub_file.good())
         std::cerr << RED << BOLD << "Error trying to open shrubbery file" << RESET << std::endl;

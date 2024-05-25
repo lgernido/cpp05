@@ -57,6 +57,7 @@ all : $(NAME)
 clean :
 	@rm -rf ${BUILD}
 	@#@rm -f *.txt
+	@rm -f *_shrubbery
 	@rm -f *.o ${OBJ_FILES_BONUS}
 	@echo "$(CYAN)Cleaning intermediary files $(RESET)"
 

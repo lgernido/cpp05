@@ -6,7 +6,7 @@
 /*   By: lgernido <lgernido@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 13:04:42 by lgernido          #+#    #+#             */
-/*   Updated: 2024/05/25 11:44:27 by lgernido         ###   ########.fr       */
+/*   Updated: 2024/05/25 12:59:30 by lgernido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,19 +19,19 @@ class PresidentialPardonForm : public AForm
 {
     public :
         ~PresidentialPardonForm();
-        PresidentialPardonForm(std::string &target);
+        PresidentialPardonForm(const std::string &target);
 
         PresidentialPardonForm(const PresidentialPardonForm& other);
         
         PresidentialPardonForm& operator=(const PresidentialPardonForm& other);
 
-        void executeForm(std::string target);
+        void executeConcrete(const std::string& target)const ;
 
     private :
         PresidentialPardonForm();
 
     protected :
 
-}
+};
 
 #endif
