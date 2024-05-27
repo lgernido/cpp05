@@ -6,7 +6,7 @@
 /*   By: lgernido <lgernido@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/26 09:44:02 by lgernido          #+#    #+#             */
-/*   Updated: 2024/05/26 10:13:08 by lgernido         ###   ########.fr       */
+/*   Updated: 2024/05/27 09:05:21 by lgernido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@
 #include "AForm.hpp"
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
-#include "PresidentialPardonForm.hpp
+#include "PresidentialPardonForm.hpp"
 
-typedef AForm* (Intern::*CF)(const std::string&) const;
+typedef AForm* (Intern::*Concrete)(const std::string&) const;
 
 class Intern
 {
@@ -31,7 +31,7 @@ class Intern
 
         Intern& operator=(const Intern& other);
 
-        Aform *makeForm(std::string name, std::string target);
+        AForm *makeForm(std::string name, std::string target);
 
         class NonExistingFormException : public std::exception{
             public :
@@ -42,7 +42,7 @@ class Intern
 
     private :
         static const std::string	names[3];
-		static const CF				forms[3];
+		static const Concrete		forms[3];
 
 		AForm*	ShrubberyCreation(const std::string& target) const;
 		AForm*	RobotomyRequest(const std::string& target) const;
@@ -51,7 +51,7 @@ class Intern
     protected :
 
     
-}
+};
 
 
 

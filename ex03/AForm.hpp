@@ -6,7 +6,7 @@
 /*   By: lgernido <lgernido@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 09:14:53 by lgernido          #+#    #+#             */
-/*   Updated: 2024/05/25 13:59:17 by lgernido         ###   ########.fr       */
+/*   Updated: 2024/05/27 10:07:45 by lgernido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 #include "Bureaucrat.hpp"
 
 class Bureaucrat;
+class Intern;
 
 class AForm
 {

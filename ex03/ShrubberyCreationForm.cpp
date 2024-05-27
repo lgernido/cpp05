@@ -6,7 +6,7 @@
 /*   By: lgernido <lgernido@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 13:01:44 by lgernido          #+#    #+#             */
-/*   Updated: 2024/05/25 13:52:44 by lgernido         ###   ########.fr       */
+/*   Updated: 2024/05/27 13:59:25 by lgernido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm& other)
 ShrubberyCreationForm::ShrubberyCreationForm(const std::string& target) : AForm("Shrubber", 145, 137)
 {
     this->target = target;
-    std::cout << BOLD << "Shrubbery Creation Form " << RESET << ITALIC << " attribute constructor called" << RESET << std::endl;
+    std::cout << BOLD << "Shrubbery Creation Form " << RESET << ITALIC << "attribute constructor called" << RESET << std::endl;
     std::cout << std::endl;
 }
 
