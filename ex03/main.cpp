@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lgernido <lgernido@student.42.fr>          +#+  +:+       +#+        */
+/*   By: luciegernidos <luciegernidos@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/27 08:50:00 by lgernido          #+#    #+#             */
-/*   Updated: 2024/05/27 14:25:44 by lgernido         ###   ########.fr       */
+/*   Updated: 2024/05/29 09:57:58 by luciegernid      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,9 +68,12 @@ int main(void)
 	std::cout << "---------------------------------------------------" RESET << std::endl;
     try
     {
+        Bureaucrat someRandomBureaucrat("random man", 5);
         Intern someRandomIntern;
         AForm* rrf;
         rrf = someRandomIntern.makeForm("robotomy request", "Bender");
+        someRandomBureaucrat.signForm(*rrf);
+        someRandomBureaucrat.executeForm(*rrf);
     }
     catch(const std::exception& e)
     {
