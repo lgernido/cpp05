@@ -6,7 +6,7 @@
 /*   By: lgernido <lgernido@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/26 09:44:02 by lgernido          #+#    #+#             */
-/*   Updated: 2024/05/27 09:05:21 by lgernido         ###   ########.fr       */
+/*   Updated: 2024/06/05 09:07:22 by lgernido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,9 +48,7 @@ class Intern
 		AForm*	RobotomyRequest(const std::string& target) const;
 		AForm*	PresidentialPardon(const std::string& target) const;
 
-    protected :
-
-    
+    protected :   
 };
 
 
