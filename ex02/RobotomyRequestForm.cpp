@@ -6,7 +6,7 @@
 /*   By: lgernido <lgernido@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 13:03:27 by lgernido          #+#    #+#             */
-/*   Updated: 2024/05/25 13:52:14 by lgernido         ###   ########.fr       */
+/*   Updated: 2024/06/05 11:45:10 by lgernido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 /*CONSTUCTORS & DESTRUCTORS*/
 
 //Default Constuctor
-RobotomyRequestForm::RobotomyRequestForm() : AForm()
+RobotomyRequestForm::RobotomyRequestForm() : AForm("Robotomy Request", 72, 45)
 {
     std::cout << BOLD << "Robotomy Request Form" << RESET << ITALIC << " default constructor called" << RESET << std::endl;
     std::cout << std::endl;

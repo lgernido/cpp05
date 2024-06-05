@@ -6,7 +6,7 @@
 /*   By: lgernido <lgernido@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 13:04:41 by lgernido          #+#    #+#             */
-/*   Updated: 2024/05/25 13:52:22 by lgernido         ###   ########.fr       */
+/*   Updated: 2024/06/05 11:44:58 by lgernido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 //Default Constructor
 
-PresidentialPardonForm::PresidentialPardonForm()
+PresidentialPardonForm::PresidentialPardonForm() : AForm("Presidential Pardon", 25, 5)
 {
     std::cout << BOLD << "Presidential Pardon Form" << RESET << ITALIC << " default constructor called" << RESET << std::endl;
     std::cout << std::endl;

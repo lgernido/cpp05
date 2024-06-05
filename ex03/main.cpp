@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: luciegernidos <luciegernidos@student.42    +#+  +:+       +#+        */
+/*   By: lgernido <lgernido@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/27 08:50:00 by lgernido          #+#    #+#             */
-/*   Updated: 2024/05/29 09:57:58 by luciegernid      ###   ########.fr       */
+/*   Updated: 2024/06/05 11:55:45 by lgernido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,10 +39,18 @@ int main(void)
 	std::cout << "---------------------------------------------------" RESET << std::endl;
     try
     {
+        AForm *shrubber;
+        AForm *robotomy;
+        AForm *pardon;
+        
         Intern victim;
-        victim.makeForm("shrubbery creation", "Tree");
-        victim.makeForm("robotomy request", "Astro Boy");
-        victim.makeForm("presidential pardon", "Obama");
+        shrubber = victim.makeForm("shrubbery creation", "Tree");
+        robotomy = victim.makeForm("robotomy request", "Astro Boy");
+        pardon = victim.makeForm("presidential pardon", "Obama");
+
+        delete shrubber;
+        delete robotomy;
+        delete pardon;
     }
     catch(const std::exception& e)
     {
@@ -55,7 +63,11 @@ int main(void)
     try
     {
         Intern victim;
-        victim.makeForm("a non existing form", "Tree");
+        AForm *invalid;
+        
+        invalid = victim.makeForm("a non existing form", "Tree");
+
+        delete invalid;
     }
     catch(const std::exception& e)
     {
@@ -74,6 +86,7 @@ int main(void)
         rrf = someRandomIntern.makeForm("robotomy request", "Bender");
         someRandomBureaucrat.signForm(*rrf);
         someRandomBureaucrat.executeForm(*rrf);
+        delete rrf;
     }
     catch(const std::exception& e)
     {
@@ -95,6 +108,7 @@ int main(void)
     }
     catch(const std::exception& e)
     {
+
         std::cerr << RED << BOLD << e.what() << RESET << std::endl;
     }
     std::cout << std::endl;
@@ -126,5 +140,6 @@ int main(void)
     catch(const std::exception& e)
     {
         std::cerr << RED << BOLD << e.what() << RESET << std::endl;
-    }   
+    }
+  
 }   

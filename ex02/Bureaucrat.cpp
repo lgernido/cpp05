@@ -6,7 +6,7 @@
 /*   By: lgernido <lgernido@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/23 14:13:21 by lgernido          #+#    #+#             */
-/*   Updated: 2024/06/05 09:04:52 by lgernido         ###   ########.fr       */
+/*   Updated: 2024/06/05 11:34:49 by lgernido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 //Default constructor
 
-Bureaucrat::Bureaucrat()
+Bureaucrat::Bureaucrat() : name("unknown"), grade(150)
 {
     std::cout << BOLD << "Bureaucrat " << RESET << ITALIC << "default constructor is called" << RESET << std::endl;
     std::cout << std::endl;

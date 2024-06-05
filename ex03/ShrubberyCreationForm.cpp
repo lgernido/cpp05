@@ -6,7 +6,7 @@
 /*   By: lgernido <lgernido@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 13:01:44 by lgernido          #+#    #+#             */
-/*   Updated: 2024/05/27 13:59:25 by lgernido         ###   ########.fr       */
+/*   Updated: 2024/06/05 11:48:52 by lgernido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 /*CONSTRUCTORS & DESTRUCTORS*/
 
 //Default Constructor
-ShrubberyCreationForm::ShrubberyCreationForm()
+ShrubberyCreationForm::ShrubberyCreationForm(): AForm("Shrubber", 145, 137)
 {
     std::cout << BOLD << "Shrubbery Creation Form " << RESET << ITALIC << "default constructor called" << RESET << std::endl;
     std::cout << std::endl;
